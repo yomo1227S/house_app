@@ -1,0 +1,14 @@
+{
+  "NuxtLogo": {
+    "description": "Auto imported from components/NuxtLogo.vue"
+  },
+  "Tutorial": {
+    "description": "Auto imported from components/Tutorial.vue"
+  },
+  "FamilyBudget": {
+    "description": "Auto imported from components/family_budget.vue"
+  },
+  "InputForum": {
+    "description": "Auto imported from components/input_forum.vue"
+  }
+}
