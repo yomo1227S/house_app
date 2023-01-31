@@ -39,6 +39,7 @@
             <button v-on:click="add_info">保存</button>
         </div>
 
+        <!-- 各項目を表示させるタグ -->
         <div class="graph">
             <div>
                 <p>収入</p>
@@ -71,7 +72,6 @@ export default {
             //各データを保存する為の空の変数
             income_form: "",
             total_income: 0,
-            main_data: [],
             today_year: [],
             today_month: [],
             //trueの時にCSSを適応させてたいので、初期値はfalse
@@ -112,13 +112,13 @@ export default {
     //----------------------------------------------------------
     //自分に影響のない挙動では動かない
     computed: {
-        // フィルター関数を使ってmain_dataから、timesから年月をわけたものが今月の年月と一致するデータを取得し、そのデータの支出額を合計し、returnで出力する。
         test_computed() {
             console.log("computed");
             return this.test + '君';
         },
         // main_dataから当年月のものをフィルターして、filに保存する。破壊せずに連想配列を扱うreduceで全て足してtotalに保存する。
         expense() {
+            //storeの値を呼び出すので、$store.state~と記述する。
             let fil = this.$store.state.main_data.filter(x => x.year == this.today_year && x.month == this.today_month)
             const total = fil.reduce((sum, i) => sum + Number(i.money_form), 0)
             return total
@@ -141,9 +141,6 @@ export default {
             return this.test + '様';
         },
 
-        tst2(a, b) {
-            return a + b
-        },
 
         tst() {
             this.input_info.selectedItem = this.items[this.input_info.selectedKey]

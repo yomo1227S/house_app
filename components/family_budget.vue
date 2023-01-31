@@ -2,6 +2,8 @@
     <div>
         <!-- クリックでdelete_dataを発火させる　-->
         <button @click="delete_data">削除</button>
+
+        <!-- stateに保存されているmain_dataをv-forでループさせ、liタグでリスト表示させている。indexも取得。 -->
         <ul>
             <li v-for="(obj, index) in $store.state.main_data">
                 <div>
@@ -11,7 +13,6 @@
                     <!-- やりたいことはvalueの値にulタグ内で回しているv-forで取得しているobj,index番号をinputタグのvalueに指定することで
                         チェックが入っているobj.indexをchecked_IDsに格納する。
                         その後、delete_dataを発火させ、mutationsの関数を呼び出してmain_data内を更新することで削除機能を実装したい-->
-
                     <!-- わからないこと
                         ・inputタグのvalueに任意の変数を記述する方法
                         ・mutataionでfliter関数を使用する際、chekedIDsとmain_dataの2つの連想配列をfilterすることで新しい配列を作成し、それをmain_dataに置き換えようとしているが、
